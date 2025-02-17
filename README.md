@@ -2,8 +2,9 @@
 This is a simple python program to update your Anki cards with IPA pronunciation data.  
 As of now, the only source I use is en.wiktionary.org.  
 
-The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet.  
-I only tested it thoroughly on Korean so far, but I'll test it on Japanese ASAP as it shouldn't give many problems. I also tested it on Spanish and Italian but it's not working great (just because of inflections), but shouldn't be hard to fix.
+The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet. Based on wiktionary's IPA content success rate may go down (e.g. for english words like bearish have no IPA, for japanese 死神 doesn't either as it's a less common spelling).  
+
+I used the program for Korean, Spanish, English, and Japanese, with success rates ranging from ~70% to ~90% based on language.
 
 # How To Use
 
