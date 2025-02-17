@@ -173,15 +173,15 @@ if __name__ == "__main__":
         print(f"Testing [[ {language} ]] language with the word [[ {word} ]]\n...\n")
         test_word(word, language)
     elif args.test_gen:
-        print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]...\n")
+        print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]\n...\n")
         generate()
     elif args.update:
         if args.update == "latest":
-            print(f"Updating the Anki collection with the latest JSON file...\n")
+            print(f"Updating the Anki collection with the latest JSON file\n...\n")
         else:
-            print(f"Updating the Anki collection with the JSON file [[ {args.update} ]]...\n")
+            print(f"Updating the Anki collection with the JSON file [[ {args.update} ]]\n...\n")
         update(args.update)
     elif args.app:
-        print(f"Updating the Anki collection...\n")
+        print(f"Updating the Anki collection\n...\n")
         generate()
         update("latest")
