@@ -1,10 +1,11 @@
 # What's this?
 This is a simple python program to update your Anki cards with IPA pronunciation data.  
 As of now, the only source I use is en.wiktionary.org.  
-The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet.  
 
-# How to use
-Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the progrma shouldn't be able to break it).
+The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet.  
+I only tested it thoroughly on Korean so far, but I'll test it on Japanese ASAP as it shouldn't give many problems. I also tested it on Spanish and Italian but it's not working great, but shouldn't be hard to fix.
+
+# How To Use
 
 ### Setup Your Cards and Config
 You need to have an empty field called `IPA`. If it's not empty, the word will be skipped.
@@ -35,17 +36,96 @@ DECKS = {
 
 3) If you edited the port for AnkiConnect, edit `ANKI_CONNECT_URL` accordingly.
 
-### Install Things
+### Install Python Env and Run (Windows)
+Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
 
-1) Install a working python with poetry if not available yet (I used 3.13.2 when developing, but other versions should work too)
-    1) Download from https://www.python.org/downloads/
-    2) Install poetry by running `pip install poetry`
-    3) If you have problems like pip not being found or python not being found, check if there's a PATH problem (if you're not able to solve this ask chatgpt or open an issue on this repo)
+1) Download or clone this repository (for downloading, click the green button with `code` and download as zip) 
 
-2) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159)
+2) Install a working python with poetry if not available yet (I used 3.13.2 when developing, but other versions should work too)
+    1) Download `python` from Download Python from [python.org/downloads](https://www.python.org/downloads/)
+    2) Install `poetry` by running `pip install poetry` on PowerShell (just search for `PowerShell` in start)
+        **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
+    3) Open a terminal in the repository directory (TODOinsert_folder_name)
+    4) Now:
+        - if you understand what I'm talking about, just run `poetry install` and activate the venv 
+        - else run 
+        ```
+        poetry config virtualenvs.in-project true
+        poetry install
+        ./.venv/Scripts/activate.ps1
+        ```
 
-3) Download or clone this repository (for downloading, click the green button with `code` and download as zip) 
+3) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159) if you don't have it yet.
+    NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
-4) Open a terminal in TODOinsert_folder_name and run poetry install (you may need to activate the venv)
+4) Run the application:
+    1) If you closed the terminal, open it again in the folder (TODOinsert_folder_name), and run again `./.venv/Scripts/activate.ps1`
+    2) Run the actual app: 
+    ```python
+    python ./main.py --app
+    ```
 
-## config.py
+5) You're done.  
+   If, after running the application, you see an error ratio that is too high, check some of the words that failed in the output file 
+   (named like `anki@YYYYDDMM-HHMMSS.json`). Search for those words manually on en.wiktionary.org.  
+   - If the word isn’t there, it’s normal for the program not to work on that word.  
+   - If it is there, try running the application again, as you may have encountered temporary timeout errors.
+
+
+### Install Python Env and Run (Mac)
+Note: The Mac guide is just slighly adjusted from the Windows guide using chatgpt o3-mini, as I don't have a Mac device to test with.
+Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
+
+1) Download or clone this repository  
+   (for downloading, click the green "Code" button and choose "Download ZIP").
+
+2) Install a working Python with Poetry if you haven’t yet.  
+   (I used Python 3.13.2 when developing, but other versions should work too)
+   1) Download Python from [python.org/downloads](https://www.python.org/downloads/).  
+   2) Install Poetry by running:  
+      ```bash
+      pip install poetry
+      ```  
+      **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
+   3) Open Terminal and navigate to the repository directory.
+   4) Now:
+      - If you know what I'm talking about, simply run:  
+        ```bash
+        poetry install
+        ```  
+        This creates a virtual environment.
+      - Else, run:
+        ```bash
+        poetry config virtualenvs.in-project true
+        poetry install
+        ```
+        Then activate the venv with:
+        ```bash
+        source .venv/bin/activate
+        ```
+
+3) Install the AnkiConnect extension for Anki, if you haven't yet.  
+   Download it from: [https://ankiweb.net/shared/info/2055492159](https://ankiweb.net/shared/info/2055492159)
+
+   **NOTE:**  
+   My Anki installation (at time of development) is Version 24.06.3, Python 3.9.18, Qt 6.6.2, and PyQt 6.6.1, with AnkiConnect version unknown.
+
+4) Run the application:
+   1) If you closed Terminal, open it again in the repository folder and activate the venv:
+      ```bash
+      source .venv/bin/activate
+      ```
+   2) Run:
+      ```bash
+      python ./main.py --app
+      ```
+
+5) You’re done.  
+   If, after running the application, you see an error ratio that is too high, check some of the words that failed in the output file 
+   (named something like `anki@xxx.json`). Search for those words manually on en.wiktionary.org.  
+   - If the word isn’t there, it’s normal for the program not to work on that word.  
+   - If it is there, try running the application again, as you may have encountered temporary timeout errors.
+
+# What's next
+The first thing I'll do in the future is making it work decently with inflected and multiple words, as I need it for Spanish (+ allow for extra things in the word field, such as duplicate markers like `Facturar (2)`).  
+Someday I'll also try and make it an actual extension but it may take a while as I have zero knowledge about how to deal with the Anki base.
