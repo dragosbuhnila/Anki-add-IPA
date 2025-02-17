@@ -3,7 +3,7 @@ This is a simple python program to update your Anki cards with IPA pronunciation
 As of now, the only source I use is en.wiktionary.org.  
 
 The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet.  
-I only tested it thoroughly on Korean so far, but I'll test it on Japanese ASAP as it shouldn't give many problems. I also tested it on Spanish and Italian but it's not working great, but shouldn't be hard to fix.
+I only tested it thoroughly on Korean so far, but I'll test it on Japanese ASAP as it shouldn't give many problems. I also tested it on Spanish and Italian but it's not working great (just because of inflections), but shouldn't be hard to fix.
 
 # How To Use
 
@@ -45,7 +45,7 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
     1) Download `python` from Download Python from [python.org/downloads](https://www.python.org/downloads/)
     2) Install `poetry` by running `pip install poetry` on PowerShell (just search for `PowerShell` in start)
         **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
-    3) Open a terminal in the repository directory (TODOinsert_folder_name)
+    3) Open a terminal in the repository directory (Anki-add-IPA)
     4) Now:
         - if you understand what I'm talking about, just run `poetry install` and activate the venv 
         - else run 
@@ -59,7 +59,7 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
     NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
 4) Run the application:
-    1) If you closed the terminal, open it again in the folder (TODOinsert_folder_name), and run again `./.venv/Scripts/activate.ps1`
+    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `./.venv/Scripts/activate.ps1`
     2) Run the actual app: 
     ```python
     python ./main.py --app
