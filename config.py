@@ -8,7 +8,7 @@ DECKS = {
     'english':              {'deck_name': 'Fluent Languages::English',      'lang': 'english', 'vocab_field': 'Vocab'},
 }
 
-deck_id = 'japanese_wk'
+deck_id = 'english'
 DECK_NAME = DECKS[deck_id]['deck_name']
 LANGUAGE = DECKS[deck_id]['lang']
 VOCAB_FIELD = DECKS[deck_id]['vocab_field']
