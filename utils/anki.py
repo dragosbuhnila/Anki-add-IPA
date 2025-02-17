@@ -19,8 +19,13 @@ def fetch_all_deck_names():
         return []
     
 def get_vocab(note):
+    if VOCAB_FIELD not in note['fields']:
+        raise Exception(f"Field '{VOCAB_FIELD}' not found in note #{note['noteId']} of model {note['modelName']}\n"
+                        + f"Available fields: {note['fields']}")
     return note['fields'][VOCAB_FIELD]['value'].strip()
 
 def get_ipa(note):
+    if 'IPA' not in note['fields']:
+        raise Exception(f"Field 'IPA' not found in note #{note['noteId']} of model {note['modelName']}")
     return note['fields']['IPA']['value'].strip()
 
