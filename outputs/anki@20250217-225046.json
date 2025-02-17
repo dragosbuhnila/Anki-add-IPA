@@ -1,0 +1,665 @@
+{
+    "skipped_words": {
+        "Encender": [
+            1711710059343,
+            null
+        ],
+        "Mochila": [
+            1711906018000,
+            null
+        ],
+        "Padres": [
+            1711906048790,
+            null
+        ],
+        "Medir": [
+            1711906080395,
+            null
+        ],
+        "Largo": [
+            1711906111719,
+            null
+        ],
+        "Ancho": [
+            1711906137195,
+            null
+        ],
+        "Hago": [
+            1711906265202,
+            null
+        ],
+        "Pierna": [
+            1711906296519,
+            null
+        ],
+        "Salgo A Correr": [
+            1711906384594,
+            null
+        ],
+        "Igual": [
+            1711906454689,
+            null
+        ],
+        "Empresa": [
+            1711906510501,
+            null
+        ],
+        "Empresaria": [
+            1711906552058,
+            null
+        ],
+        "Ciencia Ficción": [
+            1711906588762,
+            null
+        ],
+        "Acabo De": [
+            1711906634495,
+            null
+        ],
+        "Minutos": [
+            1711906669099,
+            null
+        ],
+        "Todavía": [
+            1711906743573,
+            null
+        ],
+        "Date Prisa": [
+            1711906784770,
+            null
+        ],
+        "Prisa": [
+            1711906811371,
+            null
+        ],
+        "Habitación": [
+            1711906869470,
+            null
+        ],
+        "Enseñar (2)": [
+            1711906916808,
+            null
+        ],
+        "Billete": [
+            1711906965708,
+            null
+        ],
+        "Salir": [
+            1711907045262,
+            null
+        ],
+        "Cola": [
+            1711907209017,
+            null
+        ],
+        "Facturar (2)": [
+            1711907228629,
+            null
+        ],
+        "A Menudo": [
+            1711907261196,
+            null
+        ],
+        "Despedir": [
+            1711907348397,
+            null
+        ],
+        "Despegar": [
+            1711907376891,
+            null
+        ],
+        "Gente De Negocios": [
+            1711907475232,
+            null
+        ],
+        "Sonriente": [
+            1712083669935,
+            null
+        ],
+        "Aquí Mismo": [
+            1712083970333,
+            null
+        ],
+        "Quizás": [
+            1712084042597,
+            null
+        ],
+        "Parado": [
+            1712084208467,
+            null
+        ],
+        "Sacar": [
+            1712084309085,
+            null
+        ],
+        "Bolsillo": [
+            1712084362943,
+            null
+        ],
+        "Esquina": [
+            1712084474360,
+            null
+        ],
+        "Buenas Tardes": [
+            1712084551984,
+            null
+        ],
+        "Camarero": [
+            1712084641178,
+            null
+        ],
+        "Señalar": [
+            1712084694955,
+            null
+        ],
+        "Acabar": [
+            1712084797457,
+            null
+        ],
+        "Vergüenza": [
+            1712084836518,
+            null
+        ],
+        "Extraño": [
+            1712084926170,
+            null
+        ],
+        "Regresar": [
+            1712085025983,
+            null
+        ],
+        "Estancia": [
+            1712085048479,
+            null
+        ],
+        "Situación": [
+            1712140927439,
+            null
+        ],
+        "Darse Cuenta": [
+            1712141944533,
+            null
+        ],
+        "Reloj": [
+            1712182103118,
+            null
+        ],
+        "Caja": [
+            1712182156438,
+            null
+        ],
+        "Dibujo": [
+            1712182225804,
+            null
+        ],
+        "Camión": [
+            1712182256516,
+            null
+        ],
+        "Callar": [
+            1712182318761,
+            null
+        ],
+        "Buongiorno (rev)": [
+            1712182455279,
+            null
+        ],
+        "Transportista": [
+            1712182513165,
+            null
+        ],
+        "Trabajador": [
+            1712182543503,
+            null
+        ],
+        "Dudar": [
+            1712182614950,
+            null
+        ],
+        "Salir (2)": [
+            1712182675400,
+            null
+        ],
+        "Ya (2)": [
+            1712182804348,
+            null
+        ],
+        "Llegar": [
+            1712182823141,
+            null
+        ],
+        "Arrancar": [
+            1712182858247,
+            null
+        ],
+        "Carretera": [
+            1712183005028,
+            null
+        ],
+        "Andar": [
+            1712183040452,
+            null
+        ],
+        "Mayor": [
+            1712183055207,
+            null
+        ],
+        "Dejar": [
+            1712183093414,
+            null
+        ],
+        "Detener": [
+            1712183122318,
+            null
+        ],
+        "Nascondersi (rev)": [
+            1712183139009,
+            null
+        ],
+        "Aún": [
+            1712183256952,
+            null
+        ],
+        "Trasero": [
+            1712183332920,
+            null
+        ],
+        "Por Supuesto": [
+            1712183383456,
+            null
+        ],
+        "Adelantar": [
+            1712183448446,
+            null
+        ],
+        "Meno Male (rev)": [
+            1712183462866,
+            null
+        ],
+        "Enterarse": [
+            1712183531769,
+            null
+        ],
+        "Unos": [
+            1712183576493,
+            null
+        ],
+        "Alquilar": [
+            1712183615142,
+            null
+        ],
+        "Lejos": [
+            1712183780653,
+            null
+        ],
+        "Dormirse": [
+            1712183815077,
+            null
+        ],
+        "Acostarse": [
+            1712183951393,
+            null
+        ],
+        "Desvestir": [
+            1712183968405,
+            null
+        ],
+        "Apagar": [
+            1712183990483,
+            null
+        ],
+        "Muy Pronto": [
+            1712184112326,
+            null
+        ],
+        "Averiguar": [
+            1712184152913,
+            null
+        ],
+        "Subir": [
+            1712184183446,
+            null
+        ],
+        "Planta": [
+            1712184262417,
+            null
+        ],
+        "Timbre": [
+            1712184309380,
+            null
+        ],
+        "Añadir": [
+            1712184351593,
+            null
+        ],
+        "Llave": [
+            1712184363143,
+            null
+        ],
+        "Por Fin": [
+            1712184420551,
+            null
+        ],
+        "Verdaderamente": [
+            1712184438467,
+            null
+        ],
+        "Hay Que": [
+            1712184493504,
+            null
+        ],
+        "Durante Un Tiempo": [
+            1712184521883,
+            null
+        ],
+        "Muy (2)": [
+            1712233259850,
+            null
+        ],
+        "Piso (2)": [
+            1712233855654,
+            null
+        ],
+        "Rumbo A": [
+            1712234425538,
+            null
+        ],
+        "Perfil": [
+            1712928805435,
+            null
+        ],
+        "Entrega": [
+            1712928844686,
+            null
+        ],
+        "Pelear": [
+            1712928989311,
+            null
+        ],
+        "Lluvia": [
+            1712929028686,
+            null
+        ],
+        "Asco": [
+            1712940341368,
+            null
+        ],
+        "Haber De": [
+            1712940489192,
+            null
+        ],
+        "Recorrido": [
+            1712940534689,
+            null
+        ],
+        "Ademas De": [
+            1712940594205,
+            null
+        ],
+        "Feo": [
+            1712940642175,
+            null
+        ],
+        "Lavarropas": [
+            1712997938731,
+            null
+        ],
+        "Tratar De": [
+            1712998001690,
+            null
+        ],
+        "Secar": [
+            1712998083024,
+            null
+        ],
+        "Aun": [
+            1713035032771,
+            null
+        ],
+        "Elección": [
+            1713208537968,
+            null
+        ],
+        "Quedar (2)": [
+            1713208673280,
+            null
+        ],
+        "Senderismo": [
+            1713208705911,
+            null
+        ],
+        "Botella": [
+            1713208743503,
+            null
+        ],
+        "Suave": [
+            1713208788647,
+            null
+        ],
+        "Llover": [
+            1713208838674,
+            null
+        ],
+        "Nublado": [
+            1713208864356,
+            null
+        ],
+        "Soler": [
+            1713208905283,
+            null
+        ],
+        "Época": [
+            1713208964195,
+            null
+        ],
+        "Quedar (3)": [
+            1713209041803,
+            null
+        ],
+        "Cansarse": [
+            1713209114496,
+            null
+        ],
+        "Bebida": [
+            1713209276802,
+            null
+        ],
+        "Peludo": [
+            1713209292177,
+            null
+        ],
+        "Creer": [
+            1713209340148,
+            null
+        ],
+        "Rodear": [
+            1713209369281,
+            null
+        ],
+        "Apenas": [
+            1713209424336,
+            null
+        ],
+        "Alrededor": [
+            1713209503080,
+            null
+        ],
+        "Ventana": [
+            1713209521002,
+            null
+        ],
+        "Balancear": [
+            1713209661252,
+            null
+        ],
+        "Orilla": [
+            1713209681982,
+            null
+        ],
+        "Montar": [
+            1713209731043,
+            null
+        ],
+        "Bromear": [
+            1713209753604,
+            null
+        ],
+        "Divertido": [
+            1713209892318,
+            null
+        ],
+        "Traer": [
+            1713210019057,
+            null
+        ],
+        "Galleta": [
+            1713210127938,
+            null
+        ],
+        "Pinta": [
+            1713210165056,
+            null
+        ],
+        "Así Que": [
+            1713210205331,
+            null
+        ],
+        "De Repente": [
+            1713210234714,
+            null
+        ],
+        "Descansar": [
+            1713210272933,
+            null
+        ],
+        "Despacio": [
+            1713210294954,
+            null
+        ],
+        "No Se Supone Que": [
+            1713210343464,
+            null
+        ],
+        "Sucio": [
+            1713210442521,
+            null
+        ],
+        "Polvo": [
+            1713210456379,
+            null
+        ],
+        "Oso": [
+            1713210507546,
+            null
+        ],
+        "Huella": [
+            1713210557257,
+            null
+        ],
+        "Etimología": [
+            1713210647306,
+            null
+        ],
+        "Encontrarse": [
+            1713211070894,
+            null
+        ],
+        "Se Fue": [
+            1713211165190,
+            null
+        ],
+        "Barro": [
+            1739058359960,
+            null
+        ],
+        "Carpa": [
+            1739058444721,
+            null
+        ],
+        "Pito": [
+            1739058492776,
+            null
+        ],
+        "Imán": [
+            1739058554830,
+            null
+        ],
+        "Sabio": [
+            1739058587296,
+            null
+        ],
+        "Espantar": [
+            1739058661623,
+            null
+        ],
+        "Anafes": [
+            1739058709334,
+            null
+        ],
+        "Cadere (rev)": [
+            1739058757609,
+            null
+        ],
+        "Clavo": [
+            1739058809032,
+            null
+        ],
+        "Tornillo": [
+            1739058837484,
+            null
+        ],
+        "Arrastar": [
+            1739058867382,
+            null
+        ],
+        "Áspero": [
+            1739058925303,
+            null
+        ],
+        "Prevenir": [
+            1739059000737,
+            null
+        ],
+        "Sobrar": [
+            1739059053324,
+            null
+        ],
+        "Lograr": [
+            1739059099755,
+            null
+        ],
+        "Cobre": [
+            1739059136678,
+            null
+        ],
+        "Colgar": [
+            1739059176718,
+            null
+        ],
+        "Al Alcance De La Mano": [
+            1739059214601,
+            null
+        ],
+        "Pregonar": [
+            1739059286533,
+            null
+        ],
+        "Montón": [
+            1739059323357,
+            null
+        ],
+        "Prender Fuego A Algo": [
+            1739059365141,
+            null
+        ],
+        "Fracaso": [
+            1739059399591,
+            null
+        ],
+        "Siquiera": [
+            1739059464697,
+            null
+        ]
+    },
+    "updated_words": {}
+}

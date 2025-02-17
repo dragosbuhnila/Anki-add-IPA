@@ -2,6 +2,7 @@ import re
 import os
 from datetime import datetime
 import json
+import unicodedata
 
 from config import OUTPUT_DIRECTORY, DATE_FORMAT
 
@@ -45,3 +46,31 @@ def load_most_recent_anki_json():
     print(f"Loading most recent file: {most_recent}")
 
     return load_anki_json(most_recent)
+
+def is_word(string: str) -> bool:
+    """Check if a string is a word (contains only letters, hyphens, Japanese, and Korean characters)
+
+    Args:
+        string (str): The string to check
+
+    Returns:
+        bool: True if the string is a word, False otherwise
+    """
+    for char in string:
+        category = unicodedata.category(char)
+        if not (category.startswith('L') or char == '-'):  # 'L' for Letter in any language
+            return False
+    return True
+
+def preprocess_word(word: str) -> str:
+    """Preprocess a word for IPA extraction"""
+    return word.lower().strip().strip("-").strip("?")
+
+def preprocess_phrase(phrase: str, verbose: bool = False) -> str:
+    phrase_as_list = []
+    words = phrase.split()
+    for word in words:
+        word = preprocess_word(word)
+        if is_word(word):
+            phrase_as_list.append(word)
+    return " ".join(phrase_as_list)

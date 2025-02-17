@@ -19,7 +19,7 @@ def fetch_all_deck_names():
         return []
     
 def get_vocab(note):
-    return note['fields'][VOCAB_FIELD]['value'].strip().strip("-")
+    return note['fields'][VOCAB_FIELD]['value'].strip()
 
 def get_ipa(note):
     return note['fields']['IPA']['value'].strip()

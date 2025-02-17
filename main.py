@@ -1,6 +1,7 @@
 import argparse
 from datetime import datetime
 import re
+from typing import List
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
@@ -8,7 +9,7 @@ from config import DATE_FORMAT, DECK_NAME, N_JOBS_EXTRACT, N_JOBS_UPDATE
 from utils.app import extract_word_ipa__single, fetch_words_to_update, update_card_ipa__single
 from utils.file import save
 from utils.scraper import extract_ipa_for_language, get_content
-from utils.utils import load_anki_json, load_most_recent_anki_json
+from utils.utils import is_word, load_anki_json, load_most_recent_anki_json, preprocess_phrase, preprocess_word
 
 
 def test_word(word: str, language: str):
@@ -18,9 +19,31 @@ def test_word(word: str, language: str):
     if ipa:
         print(ipa)
 
+def test_phrase(phrase: str, language: str):
+    ipas = dict()
+    words = phrase.split()
+    for word in words:
+        word = preprocess_word(word)
+        if is_word(word):
+            content = get_content(word)
+            ipa = extract_ipa_for_language(content, language, word, verbose=True)
+            if ipa:
+                ipas[word] = ipa
+            else:
+                ipas[word] = None
+
+    for word, ipa in ipas.items():
+        print(f"{word}: {ipa}")
+
 def generate():
     # Fetch words
     words_ids = fetch_words_to_update()
+    new_words_ids = dict()
+    for word, (note_id, ipa) in words_ids.items():
+        new_word = preprocess_phrase(word)
+        new_words_ids[new_word] = (note_id, ipa)
+    words_ids = new_words_ids
+    
     print(f"Words to update: {len(words_ids)}")
 
     # Initialize counters and progress bar
@@ -145,7 +168,12 @@ def parse_args() -> argparse.Namespace:
                       help='Parse a single word and see the extracted IPA, alongside a boolean '
                         + 'indicating whether other etymologies with potentially different readings are present.\n'
                         + 'Takes two arguments: WORD and LANGUAGE (e.g., "책 korean")')
-
+    
+    parser.add_argument('--test_phrase', nargs=2, metavar=('PHRASE', 'LANGUAGE'),
+                        help='Parse a phrase and see the extracted IPA for each word, alongside a boolean '
+                        + 'indicating whether other etymologies with potentially different readings are present.\n'
+                        + 'Takes two arguments: PHRASE and LANGUAGE (e.g., "책 읽다 korean)')
+    
     parser.add_argument('--test_gen', action='store_true',
                         help='Test the Anki collection update process without actually updating. Results are saved to a file.\n')
     
@@ -156,6 +184,7 @@ def parse_args() -> argparse.Namespace:
 
     parser.add_argument('--app', action='store_true',
                         help='Update the Anki collection: scrape the IPAs from wiktionary and add them to cards that need it.\n')
+
 
     return parser.parse_args()
 
@@ -172,6 +201,10 @@ if __name__ == "__main__":
         word, language = args.test_word
         print(f"Testing [[ {language} ]] language with the word [[ {word} ]]\n...\n")
         test_word(word, language)
+    elif args.test_phrase:
+        phrase, language = args.test_phrase
+        print(f"Testing [[ {language} ]] language with the phrase [[ {phrase} ]]\n...\n")
+        test_phrase(phrase, language)
     elif args.test_gen:
         print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]\n...\n")
         generate()
