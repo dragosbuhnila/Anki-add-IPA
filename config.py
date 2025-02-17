@@ -15,7 +15,7 @@ VOCAB_FIELD = DECKS[deck_id]['vocab_field']
 
 N_CORES = cpu_count()
 N_JOBS_EXTRACT = 5 * N_CORES
-N_JOBS_UPDATE = 5 * N_CORES
+N_JOBS_UPDATE = 4 * N_CORES
 
 OUTPUT_DIRECTORY = './outputs'
 ANKI_CONNECT_URL = 'http://localhost:8765'

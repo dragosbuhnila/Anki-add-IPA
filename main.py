@@ -135,6 +135,7 @@ def update(json_name):
         return
 
     skipped_words = after_anki_json.get("skipped_words", {})
+    amt_of_words = len(skipped_words)
 
     args = [(word, info['note_id'], info['ipa'], info['extra_ipa']) 
             for word, info in skipped_words.items()]
