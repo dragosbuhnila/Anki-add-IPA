@@ -1,0 +1,20 @@
+{
+    "skipped_words": {},
+    "updated_words": {
+        "비": {
+            "note_id": 1622465319367,
+            "ipa": "[pi]",
+            "extra_ipa": true
+        },
+        "님": {
+            "note_id": 1622465320974,
+            "ipa": "[nim]",
+            "extra_ipa": false
+        },
+        "여": {
+            "note_id": 1622465321561,
+            "ipa": "[jʌ̹]",
+            "extra_ipa": true
+        }
+    }
+}

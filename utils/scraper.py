@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from config import OUTPUT_DIRECTORY
 from utils.file import save
 
-def get_content(word: str, save_response: bool = False):
+def get_content(word: str, save_response: bool = False, verbose: bool = False):
     url = rf"https://en.wiktionary.org/w/api.php?action=parse&page={word}&format=json"
     response = requests.get(url)
     
@@ -20,21 +20,21 @@ def get_content(word: str, save_response: bool = False):
         try:
             response_text_content = response_text["parse"]["text"]["*"]
         except KeyError:
-            print(f"Content (.text) not found for {word}. The page may not exist or other.")
+            if verbose: print(f"Content (.text) not found for {word}. The page may not exist or other.")
             return None
         if save_response:
             save(response_text_content, f"{word}_response_text_content.html")
 
         return str(response_text_content)
     else:
-        print(f"Request for {word} failed with status code: {response.status_code}")
+        if verbose: print(f"Request for {word} failed with status code: {response.status_code}")
 
-def isolate_language_section(soup: str, language: str, word: str):
+def isolate_language_section(soup: str, language: str, word: str, verbose: bool = False):
     # Find the language of interest section
     # print(f"Isolating {language} section")
     language_section = soup.find(id=language)
     if not language_section:
-        print(f"{language} section not found: {word}")
+        if verbose: print(f"{language} section not found: {word}")
         return None
     
     # Remove all previous siblings of their parent
@@ -52,13 +52,13 @@ def isolate_language_section(soup: str, language: str, word: str):
 
     return soup
 
-def extract_ipa_for_language(content: str, language: str, word: str):
+def extract_ipa_for_language(content: str, language: str, word: str, verbose: bool = False):
     language = language.capitalize()
 
     soup = BeautifulSoup(content, 'html.parser')
     
     # Remove Unwanted Languages
-    soup = isolate_language_section(soup, language, word)
+    soup = isolate_language_section(soup, language, word, verbose=verbose)
     if not soup:
         return None
     # save(str(soup), f"{og_filename.split(".")[0]}_{language}_section.html")
@@ -102,9 +102,9 @@ def extract_ipa_for_language(content: str, language: str, word: str):
                 ipa = ipa.group(1)
                 return (ipa, more_sections)
             else:
-                print(f"IPA not found as [abcd] or /abcd/ for {language}: {word}, {ipa_section}")
+                if verbose: print(f"IPA not found as [abcd] or /abcd/ for {language}: {word}, {ipa_section}")
                 return None
     else:
         # 3) The IPA section wasn't present at all as class IPA
-        print(f"IPA not found as class=IPA for {language}: {word}")
+        if verbose: print(f"IPA not found as class=IPA for {language}: {word}")
         return None   

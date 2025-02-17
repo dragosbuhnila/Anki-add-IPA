@@ -1,6 +1,6 @@
 import re
 import os
-import datetime
+from datetime import datetime
 import json
 
 from config import OUTPUT_DIRECTORY, DATE_FORMAT

@@ -24,17 +24,17 @@ def fetch_words_to_update(debug: bool = False, from_to: Tuple[int, int] = (0, 10
 
     return words_ids
 
-def extract_word_ipa__single(word, note_id, ipa):
+def extract_word_ipa__single(word, note_id, ipa, verbose=False):
     """Process a single word and return the results"""
     try:
         web_content = get_content(word, save_response=False)
         if not web_content:
-            print(f"Error fetching content for word {word}")
+            if verbose: print(f"Error fetching content for word {word}")
             return word, (note_id, ipa), None
 
         result = extract_ipa_for_language(web_content, LANGUAGE, word)
         if not result:
-            print(f"Error extracting IPA for word {word}")
+            if verbose: print(f"Error extracting IPA for word {word}")
             return word, (note_id, ipa), None
 
         return word, (note_id, result), result
