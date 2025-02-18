@@ -4,7 +4,7 @@ As of now, the only source I use is en.wiktionary.org.
 
 The program should work with any language, but I haven't fine tuned it to deal with multiple words or inflections yet. Based on wiktionary's IPA content success rate may go down (e.g. for english words like bearish have no IPA, for japanese 死神 doesn't either as it's a less common spelling).  
 
-I used the program for Korean, Spanish, English, and Japanese, with success rates ranging from ~70% to ~90% based on language.
+I used the program for Korean, Spanish, English, and Japanese, with success rates ranging from ~70% to ~90% based on language. In the future I will implement uninflection to push it to 100%, and maybe make it an extension instead of a standalone script.
 
 # How To Use
 
@@ -115,7 +115,3 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
    (named something like `anki@xxx.json`). Search for those words manually on en.wiktionary.org.  
    - If the word isn’t there, it’s normal for the program not to work on that word.  
    - If it is there, try running the application again, as you may have encountered temporary timeout errors.
-
-# What's next
-The first thing I'll do in the future is making it work decently with inflected and multiple words, as I need it for Spanish (+ allow for extra things in the word field, such as duplicate markers like `Facturar (2)`).  
-Someday I'll also try and make it an actual extension but it may take a while as I have zero knowledge about how to deal with the Anki base.
