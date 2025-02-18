@@ -51,14 +51,14 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
         ```
         poetry config virtualenvs.in-project true
         poetry install
-        poetry env activate
+        ./.venv/Scripts/activate.ps1
         ```
 
 3) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159) if you don't have it yet.
     NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
 4) Run the application:
-    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `poetry env activate`
+    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `./.venv/Scripts/activate.ps1`
     2) Run the actual app: 
     ```python
     python ./main.py --app
