@@ -47,20 +47,18 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
     2) Install `poetry` by running `pip install poetry` on PowerShell (just search for `PowerShell` in start)
         **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
     3) Open a terminal in the repository directory (Anki-add-IPA)
-    4) Now:
-        - if you understand what I'm talking about, just run `poetry install` and activate the venv 
-        - else run 
+    4) Now install the dependencies and activate the venv
         ```
         poetry config virtualenvs.in-project true
         poetry install
-        ./.venv/Scripts/activate.ps1
+        poetry env activate
         ```
 
 3) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159) if you don't have it yet.
     NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
 4) Run the application:
-    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `./.venv/Scripts/activate.ps1`
+    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `poetry env activate`
     2) Run the actual app: 
     ```python
     python ./main.py --app
@@ -89,20 +87,11 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
       ```  
       **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
    3) Open Terminal and navigate to the repository directory.
-   4) Now:
-      - If you know what I'm talking about, simply run:  
-        ```bash
-        poetry install
-        ```  
-        This creates a virtual environment.
-      - Else, run:
-        ```bash
+   4) Now install the dependencies and activate the venv
+        ```
         poetry config virtualenvs.in-project true
         poetry install
-        ```
-        Then activate the venv with:
-        ```bash
-        source .venv/bin/activate
+        poetry env activate
         ```
 
 3) Install the AnkiConnect extension for Anki, if you haven't yet.  
@@ -114,7 +103,7 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
 4) Run the application:
    1) If you closed Terminal, open it again in the repository folder and activate the venv:
       ```bash
-      source .venv/bin/activate
+      poetry env activate
       ```
    2) Run:
       ```bash
