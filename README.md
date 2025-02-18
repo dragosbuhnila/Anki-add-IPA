@@ -91,19 +91,19 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
         ```
         poetry config virtualenvs.in-project true
         poetry install
-        poetry env activate
+        source .venv/bin/activate
         ```
 
 3) Install the AnkiConnect extension for Anki, if you haven't yet.  
    Download it from: [https://ankiweb.net/shared/info/2055492159](https://ankiweb.net/shared/info/2055492159)
 
    **NOTE:**  
-   My Anki installation (at time of development) is Version 24.06.3, Python 3.9.18, Qt 6.6.2, and PyQt 6.6.1, with AnkiConnect version unknown.
+   My Anki installation (Windows -- at time of development) is Version 24.06.3, Python 3.9.18, Qt 6.6.2, and PyQt 6.6.1, with AnkiConnect version unknown.
 
 4) Run the application:
    1) If you closed Terminal, open it again in the repository folder and activate the venv:
       ```bash
-      poetry env activate
+      source .venv/bin/activate
       ```
    2) Run:
       ```bash
