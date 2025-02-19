@@ -145,7 +145,7 @@ def configure_config():
             root.winfo_y() + root.winfo_height()/2 - 75))
 
         # Create and pack a label
-        tk.Label(dialog, text="Select the default deck:").pack(pady=10)
+        tk.Label(dialog, text="Select the deck:").pack(pady=10)
         
         # Create the combobox with deck IDs
         default_var = tk.StringVar()

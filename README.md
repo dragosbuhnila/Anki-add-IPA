@@ -17,7 +17,9 @@ How do you set it up? Either:
 - Edit `config.py` manually (you just need to edit the `DECKS` dictionary)
 - Double-click on `runconfig.bat` if on windows or run `python ./main.py --config` on terminal after activating the venv (see later).
 
-If you edited the port for AnkiConnect, you should also edit `ANKI_CONNECT_URL` accordingly (inside `config.py`).
+If you edited the port for AnkiConnect, you should also edit `ANKI_CONNECT_URL` accordingly (inside `config.py`).  
+
+If you have too many failures when the program states `At first try` try and decrease the `N_JOBS_UPDATE` multiplier in config.py.
 
 ### Install Python Env and Run (Windows)
 Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
@@ -92,3 +94,12 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
    (named something like `anki@xxx.json`). Search for those words manually on en.wiktionary.org.  
    - If the word isn’t there, it’s normal for the program not to work on that word.  
    - If it is there, try running the application again, as you may have encountered temporary timeout errors.
+
+# Screenshots
+
+## Configuration
+![Configuration Window 1](./screenshots/runconfig1.png)
+![Configuration Window 2](./screenshots/runconfig2.png)
+
+## Running In Terminal
+![Running](./screenshots/runapp.png)
