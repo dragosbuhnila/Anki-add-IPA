@@ -18,6 +18,8 @@ def fetch_words_to_update(debug: bool = False, from_to: Tuple[int, int] = (0, 10
 
     # Keep only those with empty IPA field
     notes_info = [note for note in notes_info if get_ipa(note) == ""]
+    # Keep only the non (Rev) or (rev) notes
+    notes_info = [note for note in notes_info if "(rev)" not in get_vocab(note).lower() and "(reverse)" not in get_vocab(note).lower()]
     
     # Return words
     words_ids = {get_vocab(note): (note['noteId'], None) for note in notes_info} # The tuple contains the note, ID, and the IPA

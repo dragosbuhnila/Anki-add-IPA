@@ -73,4 +73,6 @@ def preprocess_phrase(phrase: str, verbose: bool = False) -> str:
         word = preprocess_word(word)
         if is_word(word):
             phrase_as_list.append(word)
+        else:
+            phrase_as_list.append("--")
     return " ".join(phrase_as_list)
