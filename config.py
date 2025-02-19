@@ -1,14 +1,34 @@
 from multiprocessing import cpu_count
 
 DECKS = {
-    'spanish':              {'deck_name': 'Languages::Spanish',             'lang': 'spanish', 'vocab_field': 'Vocab'},
-    'korean':               {'deck_name': 'Languages::한국어',              'lang': 'korean', 'vocab_field': 'Vocab'},
-    'japanese_personal':    {'deck_name': 'JWrapper::Jap Personal::Vocab',  'lang': 'japanese', 'vocab_field': 'Vocab'},
-    'japanese_wk':         {'deck_name': 'JWrapper::Wanikani::Vocab',      'lang': 'japanese', 'vocab_field': 'Vocab'},
-    'english':              {'deck_name': 'Fluent Languages::English',      'lang': 'english', 'vocab_field': 'Vocab'},
+	'spanish': {
+		'deck_name': 'Languages::Spanish',
+		'lang': 'spanish',
+		'vocab_field': 'Vocab',
+	},
+	'japanese_personal': {
+		'deck_name': 'JWrapper::Jap Personal::Vocab',
+		'lang': 'japanese',
+		'vocab_field': 'Vocab',
+	},
+	'japanese_wk': {
+		'deck_name': 'JWrapper::Wanikani::Vocab',
+		'lang': 'japanese',
+		'vocab_field': 'Vocab',
+	},
+	'english': {
+		'deck_name': 'Fluent Languages::English',
+		'lang': 'english',
+		'vocab_field': 'Vocab',
+	},
+	'korean': {
+		'deck_name': 'Languages::한국어',
+		'lang': 'korean',
+		'vocab_field': 'Vocab',
+	},
 }
 
-deck_id = 'english'
+deck_id = 'spanish'
 DECK_NAME = DECKS[deck_id]['deck_name']
 LANGUAGE = DECKS[deck_id]['lang']
 VOCAB_FIELD = DECKS[deck_id]['vocab_field']

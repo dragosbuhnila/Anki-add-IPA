@@ -10,6 +10,7 @@ from utils.app import extract_word_ipa__single, fetch_words_to_update, update_ca
 from utils.file import save
 from utils.scraper import extract_ipa_for_language, get_content
 from utils.utils import is_word, load_anki_json, load_most_recent_anki_json, preprocess_phrase, preprocess_word
+from utils.config_helper import configure_config
 
 
 def test_word(word: str, language: str):
@@ -186,6 +187,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('--app', action='store_true',
                         help='Update the Anki collection: scrape the IPAs from wiktionary and add them to cards that need it.\n')
 
+    parser.add_argument('--config', action='store_true',
+                        help='Launch the GUI configuration editor to update the deck settings in config.py.')
+    
 
     return parser.parse_args()
 
@@ -193,8 +197,13 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
 
+    if args.config:
+        configure_config()
+        exit()
+
+
     print(f"Did you check the config.py file to ensure the settings are correct?")
-    print("(Note that if you edit it now you'll need to restart the program for the changes to actually take place)")
+    print("(If you want help with editing the config, close this and run `runconfig.bat`, then come back)")
 
     print()
     print(f"Current configuration is: {deck_id} ({DECK_NAME}, {LANGUAGE}, {VOCAB_FIELD})")
