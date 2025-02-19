@@ -5,7 +5,7 @@ from typing import List
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
-from config import DATE_FORMAT, DECK_NAME, N_JOBS_EXTRACT, N_JOBS_UPDATE
+from config import DATE_FORMAT, DECK_NAME, LANGUAGE, N_JOBS_EXTRACT, N_JOBS_UPDATE, VOCAB_FIELD, deck_id
 from utils.app import extract_word_ipa__single, fetch_words_to_update, update_card_ipa__single
 from utils.file import save
 from utils.scraper import extract_ipa_for_language, get_content
@@ -193,8 +193,13 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
 
-    input("Did you check the config.py file to ensure the settings are correct? Press Enter twice to continue, or anything else to end...")
-    if not input().strip() == "":
+    print(f"Did you check the config.py file to ensure the settings are correct?")
+    print("(Note that if you edit it now you'll need to restart the program for the changes to actually take place)")
+
+    print()
+    print(f"Current configuration is: {deck_id} ({DECK_NAME}, {LANGUAGE}, {VOCAB_FIELD})")
+    response = input(f"Type 'y' to continue, or anything else to end: ")
+    if response.lower() != "y":
         exit()
     print("Ok let's get started...\n")
     
