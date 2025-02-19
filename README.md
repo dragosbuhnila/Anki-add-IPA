@@ -57,12 +57,7 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
 3) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159) if you don't have it yet.
     NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
-4) Run the application:
-    1) If you closed the terminal, open it again in the folder (Anki-add-IPA), and run again `./.venv/Scripts/activate.ps1`
-    2) Run the actual app: 
-    ```python
-    python ./main.py --app
-    ```
+4) Run the application by double clicking `runapp.bat` (if your venv isn't in the current folder modify runapp.ps1 or activate manually)
 
 5) You're done.  
    If, after running the application, you see an error ratio that is too high, check some of the words that failed in the output file 
