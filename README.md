@@ -13,29 +13,11 @@ You need to have an empty field called `IPA`. If it's not empty, the word will b
 You also need an `Extra-IPA` field, which stores whether the word has more etymologies which may have different pronunciations.
 
 Setup the config file based on the name of your deck and the field in which the word is found. 
-How do you set it up?  
-1) Edit decks to match your own decks' information. In `DECKS` you have:  
-- a series of ids on the left, which are used in the following lines. You can keep the name of the language or anything you'd like.  
-- the `deck_name` as the first field on the right  
-- the `language` of the deck as the second field on the right  
-- the name of the field which contains the word (`vocab_field`), as the third field on the right  
-If you didn't understand, you can ask chatgpt to help you by giving him these instructions. I'll create a script to help editing this ASAP.  
+How do you set it up? Either: 
+- Edit `config.py` manually (you just need to edit the `DECKS` dictionary)
+- Double-click on `runconfig.bat` if on windows or run `python ./main.py --config` on terminal after activating the venv (see later).
 
-Example:
-```python
-DECKS = {
-    'spanish':              {'deck_name': 'Languages::Spanish', 'lang': 'spanish', 'vocab_field': 'Vocab'},
-    'korean':               {'deck_name': 'Languages::한국어',   'lang': 'korean',  'vocab_field': 'Vocab'},
-    'english':              {'deck_name': 'Languages::English', 'lang': 'english', 'vocab_field': 'Vocab'},
-
-    'japanese_personal':    {'deck_name': 'JWrapper::Jap Personal::Vocab',  'lang': 'japanese', 'vocab_field': 'Vocab'},
-    'japansese_wk':         {'deck_name': 'JWrapper::Wanikani::Vocab',      'lang': 'japanese', 'vocab_field': 'Vocab'},
-}
-```
-
-2) Set `deck_id` to the id that you want. For example if you want to update your korean deck, you just set `deck_id = 'korean'`
-
-3) If you edited the port for AnkiConnect, edit `ANKI_CONNECT_URL` accordingly.
+If you edited the port for AnkiConnect, you should also edit `ANKI_CONNECT_URL` accordingly (inside `config.py`).
 
 ### Install Python Env and Run (Windows)
 Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
