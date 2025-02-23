@@ -25,9 +25,9 @@ NOTE: If by chance you have too many failures when the program states `At first 
 ### Install Python Env and Run (Windows)
 Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
 
-1) Download or clone this repository (for downloading, click the green button with `code` and download as zip) 
+1) Download or clone this repository (for downloading, click on the green button with `code` and download as zip) 
 
-2) Install a working python with poetry if not available yet (I used 3.13.2 when developing, but other versions should work too)
+2) Install a working python with poetry if you don't have it (I used python 3.13.2 when developing, but other versions should work too)
     1) Download `python` from Download Python from [python.org/downloads](https://www.python.org/downloads/)
     2) Install `poetry` by running `pip install poetry` on PowerShell (just search for `PowerShell` in start)
         **NOTE:** If you have issues where pip or python isn’t found, check your PATH. If you need help, ask chatgpt or open an issue on this repo.
@@ -56,7 +56,7 @@ Note: The Mac guide is just slighly adjusted from the Windows guide using chatgp
 Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
 
 1) Download or clone this repository  
-   (for downloading, click the green "Code" button and choose "Download ZIP").
+   (for downloading, click on the green "Code" button and choose "Download ZIP").
 
 2) Install a working Python with Poetry if you haven’t yet.  
    (I used Python 3.13.2 when developing, but other versions should work too)
@@ -97,6 +97,9 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
    - If it is there, try running the application again, as you may have encountered temporary timeout errors.
 
 # Screenshots
+
+## Menu
+![Menu](./screenshots/menu.png)
 
 ## Configuration
 ![Configuration Window 1](./screenshots/runconfig1.png)

@@ -1,6 +1,6 @@
 import requests
 
-from config import ANKI_CONNECT_URL, VOCAB_FIELD
+from config import ANKI_CONNECT_URL, VOCAB_FIELD, MEANING_FIELD
 
 def request_anki(action, **params):
     request = {'action': action, 'params': params, 'version': 6}
@@ -23,6 +23,11 @@ def get_vocab(note):
         raise Exception(f"Field '{VOCAB_FIELD}' not found in note #{note['noteId']} of model {note['modelName']}\n"
                         + f"Available fields: {note['fields']}")
     return note['fields'][VOCAB_FIELD]['value'].strip()
+
+def get_meaning(note):
+    if MEANING_FIELD not in note['fields']:
+        raise Exception(f"Field '{MEANING_FIELD}' not found in note #{note['noteId']} of model {note['modelName']}")
+    return note['fields'][MEANING_FIELD]['value'].strip()
 
 def get_ipa(note):
     if 'IPA' not in note['fields']:

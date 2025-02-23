@@ -34,10 +34,6 @@ def main():
         
         run_script(script_map[choice])
         
-        # Ask if user wants to continue
-        if not inquirer.confirm(message="Return to menu?", default=True).execute():
-            break
-
         print("━"*50)
 
 if __name__ == "__main__":
