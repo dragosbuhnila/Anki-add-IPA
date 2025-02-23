@@ -1,4 +1,8 @@
 # Warning: completely o3-mini generated
+import re
+
+
+WINDOW_SIZE = "1000x400"
 
 def configure_config():
     import tkinter as tk
@@ -6,7 +10,7 @@ def configure_config():
 
     # Import current configuration from config.py
     try:
-        from config import DECKS, deck_id, DECK_NAME, LANGUAGE, VOCAB_FIELD
+        from config import DECKS
     except ImportError as e:
         messagebox.showerror("Error", f"Could not load config.py: {e}")
         return
@@ -17,15 +21,16 @@ def configure_config():
     # Create the main window
     root = tk.Tk()
     root.title("Configure Decks")
-    root.geometry("700x400")
+    root.geometry(WINDOW_SIZE)
 
     # Create a Treeview to display the current decks with four columns
-    columns = ('id', 'deck_name', 'lang', 'vocab_field')
+    columns = ('id', 'deck_name', 'lang', 'vocab_field', 'meaning_field')
     tree = ttk.Treeview(root, columns=columns, show='headings')
     tree.heading('id', text='ID')
     tree.heading('deck_name', text='Deck Name')
     tree.heading('lang', text='Language')
-    tree.heading('vocab_field', text='Vocab Field')
+    tree.heading('vocab_field', text='Word/Phrase Field')
+    tree.heading('meaning_field', text='Meaning Field')
     tree.pack(fill=tk.BOTH, expand=True)
 
     # Add some explanatory text with text wrapping
@@ -36,16 +41,16 @@ def configure_config():
 
     def refresh_tree():
         tree.delete(*tree.get_children())
-        sorted_items = sorted(decks.items(), key=lambda x: x[0])
+        sorted_items = sorted(decks.items(), key=lambda x: x[0]) # sort based on deck id, i.e. the key of the deck dictionary
         for did, data in sorted_items:
-            tree.insert('', 'end', iid=did, values=(did, data['deck_name'], data['lang'], data['vocab_field']))
+            tree.insert('', 'end', iid=did, values=(did, data['deck_name'], data['lang'], data['vocab_field'], data['meaning_field']))
 
     refresh_tree()
 
     # Function to update the underlying decks dictionary when a cell is edited
     def update_decks(item, col, new_value):
         current_values = tree.item(item, 'values')
-        # Column indices: 0 = id, 1 = deck_name, 2 = lang, 3 = vocab_field
+        # Column indices: 0 = id, 1 = deck_name, 2 = lang, 3 = vocab_field, 4 = meaning_field
         if col == 0:
             old_id = current_values[0]
             # Update dictionary: change key from old_id to new_value
@@ -63,6 +68,9 @@ def configure_config():
         elif col == 3:
             deck_key = current_values[0]
             decks[deck_key]['vocab_field'] = new_value
+        elif col == 4:
+            deck_key = current_values[0]
+            decks[deck_key]['meaning_field'] = new_value
         
         refresh_tree()
 
@@ -114,7 +122,8 @@ def configure_config():
         dname = simpledialog.askstring("Add Deck", "Enter deck name:", initialvalue=f"Languages::{did.capitalize()}")
         lang = simpledialog.askstring("Add Deck", "Enter language:", initialvalue=did)
         vocab = simpledialog.askstring("Add Deck", "Enter vocab field:", initialvalue="Front")
-        decks[did] = {'deck_name': dname, 'lang': lang, 'vocab_field': vocab}
+        meaning = simpledialog.askstring("Add Deck", "Enter meaning field:", initialvalue="Back")
+        decks[did] = {'deck_name': dname, 'lang': lang, 'vocab_field': vocab, 'meaning_field': meaning}
         refresh_tree()
 
     def remove_deck():
@@ -186,31 +195,26 @@ def configure_config():
             decks_str += "\t},\n"
         decks_str += "}\n"
 
-        config_content = f"""\
-from multiprocessing import cpu_count
-
-DECKS = {decks_str}
-deck_id = '{default}'
-DECK_NAME = DECKS[deck_id]['deck_name']
-LANGUAGE = DECKS[deck_id]['lang']
-VOCAB_FIELD = DECKS[deck_id]['vocab_field']
-
-N_CORES = cpu_count()
-N_JOBS_EXTRACT = 5 * N_CORES
-N_JOBS_UPDATE = 4 * N_CORES
-
-OUTPUT_DIRECTORY = './outputs'
-ANKI_CONNECT_URL = 'http://localhost:8765'
-DATE_FORMAT = r'%Y%m%d-%H%M%S'
-"""
+        # First read the existing content
         try:
+            with open("config.py", "r", encoding="utf-8") as f:
+                filecontent = f.read()
+                
+            # Replace the DECKS and deck_id using regex
+            decks_pattern = re.compile(r"DECKS = {.*?}\n\n", re.DOTALL)
+            filecontent = re.sub(decks_pattern, f"DECKS = {decks_str}\n\n", filecontent)
+            deckid_pattern = re.compile(r"deck_id = '.*?'\n")
+            filecontent = re.sub(deckid_pattern, f"deck_id = '{default}'\n", filecontent)
+
+            # Write the modified content back
             with open("config.py", "w", encoding="utf-8") as f:
-                f.write(config_content)
+                f.write(filecontent)
+                
             messagebox.showinfo("Success", "Configuration saved to config.py!")
             root.destroy()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save config.py: {e}")
-
+            
     btn_add = tk.Button(frame, text="Add Deck", command=add_deck)
     btn_remove = tk.Button(frame, text="Remove Deck", command=remove_deck)
     btn_save = tk.Button(frame, text="Save Config", command=save_config)
