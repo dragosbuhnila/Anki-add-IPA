@@ -1,6 +1,7 @@
 import argparse
 
-from config import DECK_NAME, LANGUAGE, VOCAB_FIELD, deck_id
+from config import ANKI_CONNECT_URL, DECK_NAME, LANGUAGE, VOCAB_FIELD, deck_id
+from utils.anki import request_anki
 from utils.app import test_phrase, test_word, generate, update
 from utils.config_helper import configure_config
 
@@ -58,27 +59,34 @@ if __name__ == "__main__":
 
 
     # 3) Anki Related Tests and Actual Updates
-    print(f"Did you check the config.py file to ensure the settings are correct?")
-    print("(If you want help with editing the config, close this and run `runconfig.bat`, then come back)")
+    if args.test_gen or args.update or args.app:
+        print(f"Did you check the config.py file to ensure the settings are correct?")
+        print("(If you want help with editing the config, close this and run `runconfig.bat`, then come back)")
 
-    print()
-    print(f"Current configuration is: {deck_id} ({DECK_NAME}, {LANGUAGE}, {VOCAB_FIELD})")
-    response = input(f"Type 'y' to continue, or anything else to end: ")
-    if response.lower() != "y":
-        exit()
-    print("Ok let's get started...\n")
-    
+        print()
+        print(f"Current configuration is: {deck_id} ({DECK_NAME}, {LANGUAGE}, {VOCAB_FIELD})")
+        response = input(f"Type 'y' to continue, or anything else to end: ")
+        if response.lower() != "y":
+            exit()
+        print("Ok let's get started...\n")
+        
+        # Check if AnkiConnect is on @ ANKI_CONNECT_URL
+        try:
+            request_anki('version')
+        except Exception as e:
+            print(f"Error connecting to Anki, check if AnkiConnect is on @ {ANKI_CONNECT_URL}")
+            exit()
 
-    if args.test_gen:
-        print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]\n...\n")
-        generate()
-    elif args.update:
-        if args.update == "latest":
-            print(f"Updating the Anki collection with the latest JSON file\n...\n")
-        else:
-            print(f"Updating the Anki collection with the JSON file [[ {args.update} ]]\n...\n")
-        update(args.update)
-    elif args.app:
-        print(f"Updating the Anki collection\n...\n")
-        generate()
-        update("latest")
+        if args.test_gen:
+            print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]\n...\n")
+            generate()
+        elif args.update:
+            if args.update == "latest":
+                print(f"Updating the Anki collection with the latest JSON file\n...\n")
+            else:
+                print(f"Updating the Anki collection with the JSON file [[ {args.update} ]]\n...\n")
+            update(args.update)
+        elif args.app:
+            print(f"Updating the Anki collection\n...\n")
+            generate()
+            update("latest")

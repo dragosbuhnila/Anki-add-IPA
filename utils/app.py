@@ -8,7 +8,7 @@ from tqdm import tqdm
 from utils.anki import get_meaning, request_anki, get_ipa, get_vocab
 from utils.file import save
 from utils.scraper import get_content, extract_ipa_for_language
-from config import DATE_FORMAT, DECK_NAME, LANGUAGE, N_JOBS_EXTRACT, N_JOBS_UPDATE
+from config import ANKI_CONNECT_URL, DATE_FORMAT, DECK_NAME, LANGUAGE, N_JOBS_EXTRACT, N_JOBS_UPDATE
 from utils.utils import is_word, load_anki_json, load_most_recent_anki_json, preprocess_phrase, preprocess_word
 
 def fetch_words_to_update(debug: bool = False, from_to: Tuple[int, int] = (0, 10_000), 
@@ -188,6 +188,14 @@ def generate(force_update: bool = False):
     print(f"Generated IPA for {len(updated_words)} / {total} words. {len(skipped_dict)} / {total} failed.")
 
 def update(json_name):
+    # Check if AnkiConnect is on @ ANKI_CONNECT_URL
+    try:
+        request_anki('version')
+    except Exception as e:
+        print(f"Error connecting to Anki, check if AnkiConnect is on @ {ANKI_CONNECT_URL}.")
+        return
+
+    # Load the JSON file with the words to update, containing the IPA and note IDs, and the original time of creation of that JSON
     if json_name == "latest":
         anki_json, original_time = load_most_recent_anki_json()
     else:
