@@ -126,13 +126,17 @@ def test_phrase(phrase: str, language: str):
     for word in words:
         word = preprocess_word(word)
         if is_word(word):
-            content = get_content(word)
+            content = get_content(word, verbose=True)
             ipa = extract_ipa_for_language(content, language, word, verbose=True)
             if ipa:
                 ipas[word] = ipa
             else:
                 ipas[word] = None
 
+    if len(ipas) == 0:
+        print("No IPA found.")
+        return
+    
     for word, ipa in ipas.items():
         print(f"{word}: {ipa}")
 

@@ -15,8 +15,4 @@ $language = Read-Host
 
 # Run the Python script with user input
 Write-Host "`nTesting word '$word' for language '$language'...`n"
-python .\main.py --test_word $word $language
-
-# Keep terminal open
-Write-Host "`nPress any key to continue..."
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+python .\main.py --test_phrase $word $language

@@ -28,6 +28,7 @@ def get_content(word: str, save_response: bool = False, verbose: bool = False):
         return str(response_text_content)
     else:
         if verbose: print(f"Request for {word} failed with status code: {response.status_code}")
+        return None
 
 def isolate_language_section(soup: str, language: str, word: str, verbose: bool = False):
     # Find the language of interest section
@@ -53,6 +54,9 @@ def isolate_language_section(soup: str, language: str, word: str, verbose: bool 
     return soup
 
 def extract_ipa_for_language(content: str, language: str, word: str, verbose: bool = False):
+    if content is None:
+        return None
+
     language = language.capitalize()
 
     soup = BeautifulSoup(content, 'html.parser')

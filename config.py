@@ -5,7 +5,7 @@ DECKS = {
 		'deck_name': 'Languages::Spanish',
 		'lang': 'spanish',
 		'vocab_field': 'Vocab',
-		'meaning_field': 'Pippo',
+		'meaning_field': 'Meaning',
 	},
 	'japanese_personal': {
 		'deck_name': 'JWrapper::Jap Personal::Vocab',
@@ -31,13 +31,8 @@ DECKS = {
 		'vocab_field': 'Vocab',
 		'meaning_field': 'Meaning',
 	},
-	'asdf': {
-		'deck_name': 'Languages::Asdf',
-		'lang': 'asdf',
-		'vocab_field': 'Front',
-		'meaning_field': 'Back',
-	},
 }
+
 
 
 

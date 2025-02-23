@@ -50,6 +50,12 @@ if __name__ == "__main__":
         print(f"Testing [[ {language} ]] language with the word [[ {word} ]]\n...\n")
         test_word(word, language)
         exit()
+    elif args.test_phrase:
+        phrase, language = args.test_phrase
+        print(f"Testing [[ {language} ]] language with the phrase [[ {phrase} ]]\n...\n")
+        test_phrase(phrase, language)
+        exit()
+
 
     # 3) Anki Related Tests and Actual Updates
     print(f"Did you check the config.py file to ensure the settings are correct?")
@@ -62,11 +68,8 @@ if __name__ == "__main__":
         exit()
     print("Ok let's get started...\n")
     
-    if args.test_phrase:
-        phrase, language = args.test_phrase
-        print(f"Testing [[ {language} ]] language with the phrase [[ {phrase} ]]\n...\n")
-        test_phrase(phrase, language)
-    elif args.test_gen:
+
+    if args.test_gen:
         print(f"Testing the Anki collection update process for deck [[ {DECK_NAME} ]]\n...\n")
         generate()
     elif args.update:

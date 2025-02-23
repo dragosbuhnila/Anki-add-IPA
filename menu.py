@@ -13,7 +13,7 @@ def main():
             message="Select an action:",
             choices=[
                 Choice("config", "Configure Settings"),
-                Choice("test", "Test Single Word"),
+                Choice("test", "Test Single Word/Phrase"),
                 Choice("app", "Run Application"),
                 Choice("quit", "Quit")
             ],
