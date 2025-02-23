@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy Bypass -File "%~dp0cmdscripts\win\runmenu.ps1"

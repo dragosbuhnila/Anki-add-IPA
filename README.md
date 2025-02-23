@@ -12,14 +12,15 @@ I used the program for Korean, Spanish, English, and Japanese, with success rate
 You need to have an empty field called `IPA`. If it's not empty, the word will be skipped.
 You also need an `Extra-IPA` field, which stores whether the word has more etymologies which may have different pronunciations.
 
+If you edited the port for AnkiConnect, you should also edit `ANKI_CONNECT_URL` accordingly (inside `config.py`).  
+
 Setup the config file based on the name of your deck and the field in which the word is found. 
 How do you set it up? Either: 
 - Edit `config.py` manually (you just need to edit the `DECKS` dictionary)
-- Double-click on `runconfig.bat` if on windows or run `python ./main.py --config` on terminal after activating the venv (see later).
+- Activate the venv and run `python ./main.py --config`
+- (Win Only) Double-click on `run.bat` and select the `config` option.
 
-If you edited the port for AnkiConnect, you should also edit `ANKI_CONNECT_URL` accordingly (inside `config.py`).  
-
-If you have too many failures when the program states `At first try` try and decrease the `N_JOBS_UPDATE` multiplier in config.py.
+NOTE: If by chance you have too many failures when the program states `At first try` try and decrease the `N_JOBS_UPDATE` multiplier in config.py.
 
 ### Install Python Env and Run (Windows)
 Note: don't run before checking [config.py](#configpy) is correct, also, do a backup of your collection before (although the program shouldn't be able to break it).
@@ -41,7 +42,7 @@ Note: don't run before checking [config.py](#configpy) is correct, also, do a ba
 3) Install the ankiconnect extension for python (https://ankiweb.net/shared/info/2055492159) if you don't have it yet.
     NOTE: my Anki installation as of dev time is Version 24.06.3 Python 3.9.18 Qt 6.6.2 PyQt 6.6.1, and AnkiConnect idk.
 
-4) Run the application by double clicking `runapp.bat` (if your venv isn't in the current folder modify runapp.ps1 or activate manually)
+4) Run the application by double clicking `run.bat` and select the `run app` option (if your venv isn't in the current folder either move it there or modify the ps1 files accordingly)
 
 5) You're done.  
    If, after running the application, you see an error ratio that is too high, check some of the words that failed in the output file 

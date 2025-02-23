@@ -197,11 +197,19 @@ def parse_args() -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
 
+    # 1) Configuration Editor
     if args.config:
         configure_config()
         exit()
 
+    # 2) Single Word or Phrase Tests
+    if args.test_word:
+        word, language = args.test_word
+        print(f"Testing [[ {language} ]] language with the word [[ {word} ]]\n...\n")
+        test_word(word, language)
+        exit()
 
+    # 3) Anki Related Tests and Actual Updates
     print(f"Did you check the config.py file to ensure the settings are correct?")
     print("(If you want help with editing the config, close this and run `runconfig.bat`, then come back)")
 
@@ -212,11 +220,7 @@ if __name__ == "__main__":
         exit()
     print("Ok let's get started...\n")
     
-    if args.test_word:
-        word, language = args.test_word
-        print(f"Testing [[ {language} ]] language with the word [[ {word} ]]\n...\n")
-        test_word(word, language)
-    elif args.test_phrase:
+    if args.test_phrase:
         phrase, language = args.test_phrase
         print(f"Testing [[ {language} ]] language with the phrase [[ {phrase} ]]\n...\n")
         test_phrase(phrase, language)
